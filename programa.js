@@ -13,21 +13,12 @@ map.pm.addControls({
     drawMarker: false
 });
 
-// Coordenadas de ejemplo para el polígono alrededor del barrio Timiza (puedes ajustar más si lo deseas)
-var polygonCoordinates = [
-    [4.613500, -74.159000],
-    [4.612500, -74.158500],
-    [4.611800, -74.157000],
-    [4.612200, -74.155500],
-    [4.613000, -74.156000]
-];
+// Cargar el archivo GeoJSON utilizando leaflet-omnivore
+omnivore.geojson('data/timiza.geojson').addTo(map);
 
-// Crear el polígono y agregarlo al mapa
-var polygon = L.polygon(polygonCoordinates, {
-    color: 'blue',       // Color del borde del polígono
-    fillColor: 'cyan',   // Color de relleno del polígono
-    fillOpacity: 0.5     // Opacidad del relleno
-}).addTo(map);
-
-// Agregar un popup en el centro del polígono
-polygon.bindPopup("<b>Barrio Timiza</b><br>Zona delimitada del barrio.").openPopup();
+// Si quieres también agregar un popup a la capa cargada
+omnivore.geojson('timiza.geojson').on('ready', function() {
+    this.getLayers().forEach(function(layer) {
+        layer.bindPopup('<b>' + layer.feature.properties.name + '</b>');
+    });
+});

@@ -1,0 +1,25 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-74.159000, 4.613500],
+              [-74.158500, 4.612500],
+              [-74.157000, 4.611800],
+              [-74.155500, 4.612200],
+              [-74.156000, 4.613000],
+              [-74.159000, 4.613500]
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Barrio Timiza"
+        }
+      }
+    ]
+  }
+  
